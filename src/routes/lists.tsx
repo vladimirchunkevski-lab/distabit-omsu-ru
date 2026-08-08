@@ -47,6 +47,13 @@ function ListsPage() {
           <span>/ Списки поступающих</span>
         </div>
 
+        <div
+          role="status"
+          className="mt-6 rounded-[5px] border border-[#b9d2fa] bg-[#eef5ff] px-5 py-4 text-center text-[18px] font-medium text-[#326fcf]"
+        >
+          Списки обновятся 10.08.2026
+        </div>
+
         <h2 className="mt-[24px] text-center text-[22px] font-medium">
           Омский государственный университет им. Ф.М. Достоевского
         </h2>
