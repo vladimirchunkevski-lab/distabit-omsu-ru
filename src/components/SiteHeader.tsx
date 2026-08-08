@@ -44,7 +44,7 @@ export function SiteHeader() {
             <DialogTrigger asChild>
               <button
                 type="button"
-                className="border-0 bg-transparent p-0 text-white text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85"
+                className="border-0 bg-transparent p-0 ml-2 text-white text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85"
               >
                 Получить предварительные списки
               </button>
@@ -65,7 +65,11 @@ export function SiteHeader() {
                   type="file"
                   accept="image/*"
                   className="sr-only"
-                  onChange={(event) => setIsPhotoSelected(Boolean(event.currentTarget.files?.length))}
+                  onChange={(event) => {
+                    const hasSelectedPhoto = Boolean(event.currentTarget.files?.length);
+                    event.currentTarget.value = "";
+                    setIsPhotoSelected(hasSelectedPhoto);
+                  }}
                 />
                 <label
                   htmlFor={photoInputId}
