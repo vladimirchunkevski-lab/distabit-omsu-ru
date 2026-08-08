@@ -65,7 +65,11 @@ export function SiteHeader() {
                   type="file"
                   accept="image/*"
                   className="sr-only"
-                  onChange={(event) => setIsPhotoSelected(Boolean(event.currentTarget.files?.length))}
+                  onChange={(event) => {
+                    const hasSelectedPhoto = Boolean(event.currentTarget.files?.length);
+                    event.currentTarget.value = "";
+                    setIsPhotoSelected(hasSelectedPhoto);
+                  }}
                 />
                 <label
                   htmlFor={photoInputId}
