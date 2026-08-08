@@ -98,7 +98,7 @@ function Index() {
                   <b className="text-[#4285f4]">Поиск уникального кода</b>
                 </a>
                 <br />
-                <span className="block leading-[0.5]">
+                <span className="block leading-[1.8]">
                   <b className="text-[#239b56]">
                     Если бы зачисление было сегодня...{" "}
                     <a
