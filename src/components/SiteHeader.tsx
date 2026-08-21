@@ -31,16 +31,32 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="w-full min-h-16 bg-[#4186f5] flex items-center shadow-[0_5px_12px_rgba(0,0,0,0.22)]">
-      <div className="w-[1200px] min-h-16 mx-auto flex items-center px-4">
-        <Link to="/" className="flex items-center gap-3 text-white no-underline whitespace-nowrap text-[18px] font-semibold leading-none">
-          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true">
+    <header className="w-full min-h-16 bg-[#4186f5] shadow-[0_5px_12px_rgba(0,0,0,0.22)]">
+      <div className="w-full max-w-[1200px] min-h-16 mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center px-4 lg:flex">
+        <Link to="/" className="flex min-w-0 items-center gap-3 text-white no-underline text-[15px] font-semibold leading-tight sm:text-[18px] lg:whitespace-nowrap lg:leading-none">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true" className="shrink-0">
             <path d="M12 3 2 12h3v9h6v-6h2v6h6v-9h3z" />
           </svg>
-          <span>Электронные сервисы Приемной комиссии ОмГУ</span>
+          <span className="min-w-0">Электронные сервисы Приемной комиссии ОмГУ</span>
         </Link>
 
-        <nav className="ml-auto flex items-center h-full">
+        <button
+          type="button"
+          aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="ml-3 shrink-0 rounded-[4px] border-0 bg-transparent p-2 text-white hover:opacity-85 lg:hidden"
+        >
+          {isMenuOpen ? <Menu className="hidden" /> : null}
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+
+        <nav
+          className={`${
+            isMenuOpen ? "flex" : "hidden"
+          } col-span-2 w-full flex-col items-start gap-5 border-t border-white/25 py-4 lg:col-span-1 lg:ml-auto lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-0 lg:border-0 lg:py-0`}
+          onClick={() => setIsMenuOpen(false)}
+        >
           <Dialog open={isDialogOpen} onOpenChange={handleDialogChange}>
             <DialogTrigger asChild>
               <button
