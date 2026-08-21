@@ -47,7 +47,7 @@ export function SiteHeader() {
           onClick={() => setIsMenuOpen((open) => !open)}
           className="ml-3 shrink-0 rounded-[4px] border-0 bg-transparent p-2 text-white hover:opacity-85 lg:hidden"
         >
-          {isMenuOpen ? <Menu className="hidden" /> : null}
+          
           {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
