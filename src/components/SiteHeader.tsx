@@ -16,6 +16,7 @@ export function SiteHeader() {
   const photoInputId = useId();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isPhotoSelected, setIsPhotoSelected] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleDialogChange = (open: boolean) => {
     setIsDialogOpen(open);
