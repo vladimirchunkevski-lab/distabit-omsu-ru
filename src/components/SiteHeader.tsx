@@ -61,7 +61,7 @@ export function SiteHeader() {
             <DialogTrigger asChild>
               <button
                 type="button"
-                className="border-0 bg-transparent p-0 ml-2 text-white text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85"
+                className="border-0 bg-transparent p-0 lg:ml-2 text-white text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85"
               >
                 Получить предварительные списки
               </button>
@@ -122,20 +122,20 @@ export function SiteHeader() {
               </DialogFooter>
             </DialogContent>
           </Dialog>
-          <Link to="/lists" className="ml-8 text-white no-underline text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85">
+          <Link to="/lists" className="lg:ml-8 text-white no-underline text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85">
             Списки поступающих
           </Link>
-          <a href="#" className="ml-8 text-white no-underline text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85">
+          <a href="#" className="lg:ml-8 text-white no-underline text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85">
             Списки зачисленных
           </a>
-          <a href="#" aria-label="Язык" className="ml-8 text-white hover:opacity-85">
+          <a href="#" aria-label="Язык" className="lg:ml-8 text-white hover:opacity-85">
             <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="9" />
               <ellipse cx="12" cy="12" rx="4" ry="9" />
               <path d="M3 12h18" />
             </svg>
           </a>
-          <a href="#" className="ml-8 flex items-center gap-3 text-white no-underline text-[14px] font-semibold hover:opacity-85">
+          <a href="#" className="lg:ml-8 flex items-center gap-3 text-white no-underline text-[14px] font-semibold hover:opacity-85">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M10 17l5-5-5-5" />
               <path d="M15 12H3" />
