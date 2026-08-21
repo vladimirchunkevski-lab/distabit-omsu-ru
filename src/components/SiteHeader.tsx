@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { ImagePlus } from "lucide-react";
+import { ImagePlus, Menu, X } from "lucide-react";
 import { useId, useState } from "react";
 import {
   Dialog,
@@ -16,6 +16,7 @@ export function SiteHeader() {
   const photoInputId = useId();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isPhotoSelected, setIsPhotoSelected] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleDialogChange = (open: boolean) => {
     setIsDialogOpen(open);
@@ -30,21 +31,37 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="w-full min-h-16 bg-[#4186f5] flex items-center shadow-[0_5px_12px_rgba(0,0,0,0.22)]">
-      <div className="w-[1200px] min-h-16 mx-auto flex items-center px-4">
-        <Link to="/" className="flex items-center gap-3 text-white no-underline whitespace-nowrap text-[18px] font-semibold leading-none">
-          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true">
+    <header className="w-full min-h-16 bg-[#4186f5] shadow-[0_5px_12px_rgba(0,0,0,0.22)]">
+      <div className="w-full max-w-[1200px] min-h-16 mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center px-4 lg:flex">
+        <Link to="/" className="flex min-w-0 items-center gap-3 text-white no-underline text-[15px] font-semibold leading-tight sm:text-[18px] lg:whitespace-nowrap lg:leading-none">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true" className="shrink-0">
             <path d="M12 3 2 12h3v9h6v-6h2v6h6v-9h3z" />
           </svg>
-          <span>Электронные сервисы Приемной комиссии ОмГУ</span>
+          <span className="min-w-0">Электронные сервисы Приемной комиссии ОмГУ</span>
         </Link>
 
-        <nav className="ml-auto flex items-center h-full">
+        <button
+          type="button"
+          aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="ml-3 shrink-0 rounded-[4px] border-0 bg-transparent p-2 text-white hover:opacity-85 lg:hidden"
+        >
+          
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+
+        <nav
+          className={`${
+            isMenuOpen ? "flex" : "hidden"
+          } col-span-2 w-full flex-col items-start gap-5 border-t border-white/25 py-4 lg:col-span-1 lg:ml-auto lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-0 lg:border-0 lg:py-0`}
+          onClick={() => setIsMenuOpen(false)}
+        >
           <Dialog open={isDialogOpen} onOpenChange={handleDialogChange}>
             <DialogTrigger asChild>
               <button
                 type="button"
-                className="border-0 bg-transparent p-0 ml-2 text-white text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85"
+                className="border-0 bg-transparent p-0 lg:ml-2 text-white text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85"
               >
                 Получить предварительные списки
               </button>
@@ -105,20 +122,20 @@ export function SiteHeader() {
               </DialogFooter>
             </DialogContent>
           </Dialog>
-          <Link to="/lists" className="ml-8 text-white no-underline text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85">
+          <Link to="/lists" className="lg:ml-8 text-white no-underline text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85">
             Списки поступающих
           </Link>
-          <a href="#" className="ml-8 text-white no-underline text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85">
+          <a href="#" className="lg:ml-8 text-white no-underline text-[14px] font-semibold leading-none whitespace-nowrap cursor-pointer hover:opacity-85">
             Списки зачисленных
           </a>
-          <a href="#" aria-label="Язык" className="ml-8 text-white hover:opacity-85">
+          <a href="#" aria-label="Язык" className="lg:ml-8 text-white hover:opacity-85">
             <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="9" />
               <ellipse cx="12" cy="12" rx="4" ry="9" />
               <path d="M3 12h18" />
             </svg>
           </a>
-          <a href="#" className="ml-8 flex items-center gap-3 text-white no-underline text-[14px] font-semibold hover:opacity-85">
+          <a href="#" className="lg:ml-8 flex items-center gap-3 text-white no-underline text-[14px] font-semibold hover:opacity-85">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M10 17l5-5-5-5" />
               <path d="M15 12H3" />
