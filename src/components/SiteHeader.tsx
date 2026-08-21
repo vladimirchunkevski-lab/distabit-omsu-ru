@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { ImagePlus } from "lucide-react";
+import { ImagePlus, Menu, X } from "lucide-react";
 import { useId, useState } from "react";
 import {
   Dialog,
